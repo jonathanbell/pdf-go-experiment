@@ -1,0 +1,19 @@
+version: "3.4"
+
+name: win-loss-pdf-service
+services:
+  win-loss-pdf-service:
+    build:
+      context: .
+      target: base
+    image: win-loss-pdf-service
+    container_name: win-loss-pdf-service
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    ports:
+      - $PORT:$PORT
